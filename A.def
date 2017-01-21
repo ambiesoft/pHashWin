@@ -1,0 +1,17 @@
+LIBRARY pHash
+EXPORTS
+ ph_about
+ ph_radon_projections
+ ph_feature_vector
+ ph_dct
+ ph_crosscorr
+ ph_image_digest
+ ph_compare_images
+ ph_bmb_free
+ ph_bmb_imagehash
+ ph_dct_imagehash
+ ph_hamming_distance
+ GetMHKernel
+ ph_mh_imagehash
+ ph_readfilenames
+ ph_bitcount8
