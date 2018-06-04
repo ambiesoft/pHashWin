@@ -7,9 +7,8 @@ EXPORTS
  ph_crosscorr
  ph_image_digest
  ph_compare_images
- ph_bmb_free
- ph_bmb_imagehash
  ph_dct_imagehash
+ ph_dct_videohash
  ph_hamming_distance
  GetMHKernel
  ph_mh_imagehash

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1A4E5682-AA5E-41E6-9C0D-CC85D3A3D547}</ProjectGuid>
+    <RootNamespace>pHash</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\VcPkgDir.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;jpeg-6b;$(VcPkgRootDir)installed\x86-windows-static\include;$(VcPkgRootDir)installed\x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_IMAGE_HASH;HAVE_VIDEO_HASH;cimg_use_jpeg;cimg_use_png;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>A.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <StackCommitSize>0</StackCommitSize>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(VcPkgRootDir)installed\x86-windows-static\debug\lib;$(VcPkgRootDir)installed\x86-windows\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(VcPkgRootDir)installed\x86-windows\debug\bin\vorbisenc.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\vorbis.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\ogg.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\avutil-55.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\swresample-2.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\swscale-4.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\avcodec-57.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\avformat-57.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\libsamplerate-0.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\libsndfile-1.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\debug\bin\FLAC.dll "$(TargetDir)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;jpeg-6b;$(VcPkgRootDir)installed\x86-windows-static\include;$(VcPkgRootDir)installed\x86-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_IMAGE_HASH;HAVE_VIDEO_HASH;cimg_use_jpeg;cimg_use_png;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>None</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>A.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(VcPkgRootDir)installed\x86-windows-static\lib;$(VcPkgRootDir)installed\x86-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(VcPkgRootDir)installed\x86-windows\bin\vorbisenc.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\vorbis.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\ogg.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\avutil-55.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\swresample-2.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\swscale-4.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\avcodec-57.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\avformat-57.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\libsamplerate-0.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\libsndfile-1.dll "$(TargetDir)"
+copy $(VcPkgRootDir)installed\x86-windows\bin\FLAC.dll "$(TargetDir)"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="audiophash.cpp" />
+    <ClCompile Include="cimgffmpeg.cpp" />
+    <ClCompile Include="dirent.c" />
+    <ClCompile Include="loadlibs.cpp" />
+    <ClCompile Include="pHash.cpp" />
+    <ClCompile Include="phcomplex.cpp" />
+    <ClCompile Include="ph_fft.cpp" />
+    <ClCompile Include="sys\mman.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="audiophash.h" />
+    <ClInclude Include="cimgffmpeg.h" />
+    <ClInclude Include="dirent.h" />
+    <ClInclude Include="pHash-config.h" />
+    <ClInclude Include="pHash.h" />
+    <ClInclude Include="phcomplex.h" />
+    <ClInclude Include="ph_fft.h" />
+    <ClInclude Include="sys\mman.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="jpeg-6b\jpeg\jpeg.vcxproj">
+      <Project>{5b5a347a-8e67-4611-a646-bdc5965e563c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="A.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

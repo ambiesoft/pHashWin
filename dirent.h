@@ -44,100 +44,100 @@ extern "C" {
 #endif
 
 
-struct dirent
-{
-	long		d_ino;		/* Always zero. */
-	unsigned short	d_reclen;	/* Always zero. */
-	unsigned short	d_namlen;	/* Length of name in d_name. */
-	char		d_name[FILENAME_MAX]; /* File name. */
-};
-
-/*
- * This is an internal data structure. Good programmers will not use it
- * except as an argument to one of the functions below.
- * dd_stat field is now int (was short in older versions).
- */
-__declspec(dllexport)
-typedef struct
-{
-	/* disk transfer area for this dir */
-	struct _finddata_t	dd_dta;
-
-	/* dirent struct to return from dir (NOTE: this makes this thread
-	 * safe as long as only one thread uses a particular DIR struct at
-	 * a time) */
-	struct dirent		dd_dir;
-
-	/* _findnext handle */
-	long			dd_handle;
+	struct dirent
+	{
+		long		d_ino;		/* Always zero. */
+		unsigned short	d_reclen;	/* Always zero. */
+		unsigned short	d_namlen;	/* Length of name in d_name. */
+		char		d_name[FILENAME_MAX]; /* File name. */
+	};
 
 	/*
-         * Status of search:
-	 *   0 = not started yet (next entry to read is first entry)
-	 *  -1 = off the end
-	 *   positive = 0 based index of next entry
+	 * This is an internal data structure. Good programmers will not use it
+	 * except as an argument to one of the functions below.
+	 * dd_stat field is now int (was short in older versions).
 	 */
-	int			dd_stat;
+	__declspec(dllexport)
+		typedef struct
+	{
+		/* disk transfer area for this dir */
+		struct _finddata_t	dd_dta;
 
-	/* given path for dir with search pattern (struct is extended) */
-	char			dd_name[1];
-} DIR;
+		/* dirent struct to return from dir (NOTE: this makes this thread
+		 * safe as long as only one thread uses a particular DIR struct at
+		 * a time) */
+		struct dirent		dd_dir;
 
-__declspec(dllexport) DIR* opendir (const char*);
-__declspec(dllexport) struct dirent* readdir (DIR*);
-__declspec(dllexport) int __cdecl closedir (DIR*);
-__declspec(dllexport) void rewinddir (DIR*);
-__declspec(dllexport) long telldir (DIR*);
-__declspec(dllexport) void seekdir (DIR*, long);
+		/* _findnext handle */
+		long			dd_handle;
+
+		/*
+			 * Status of search:
+		 *   0 = not started yet (next entry to read is first entry)
+		 *  -1 = off the end
+		 *   positive = 0 based index of next entry
+		 */
+		int			dd_stat;
+
+		/* given path for dir with search pattern (struct is extended) */
+		char			dd_name[1];
+	} DIR;
+
+	__declspec(dllexport) DIR* opendir(const char*);
+	__declspec(dllexport) struct dirent* readdir(DIR*);
+	__declspec(dllexport) int __cdecl closedir(DIR*);
+	__declspec(dllexport) void rewinddir(DIR*);
+	__declspec(dllexport) long telldir(DIR*);
+	__declspec(dllexport) void seekdir(DIR*, long);
 
 
-/* wide char versions */
-struct _wdirent
-{
-	long		d_ino;		/* Always zero. */
-	unsigned short	d_reclen;	/* Always zero. */
-	unsigned short	d_namlen;	/* Length of name in d_name. */
-	wchar_t		d_name[FILENAME_MAX]; /* File name. */
-};
-
-/*
- * This is an internal data structure. Good programmers will not use it
- * except as an argument to one of the functions below.
- */
-__declspec(dllexport)
-typedef struct
-{
-	/* disk transfer area for this dir */
-	struct _wfinddata_t	dd_dta;
-
-	/* dirent struct to return from dir (NOTE: this makes this thread
-	 * safe as long as only one thread uses a particular DIR struct at
-	 * a time) */
-	struct _wdirent		dd_dir;
-
-	/* _findnext handle */
-	long			dd_handle;
+	/* wide char versions */
+	struct _wdirent
+	{
+		long		d_ino;		/* Always zero. */
+		unsigned short	d_reclen;	/* Always zero. */
+		unsigned short	d_namlen;	/* Length of name in d_name. */
+		wchar_t		d_name[FILENAME_MAX]; /* File name. */
+	};
 
 	/*
-         * Status of search:
-	 *   0 = not started yet (next entry to read is first entry)
-	 *  -1 = off the end
-	 *   positive = 0 based index of next entry
+	 * This is an internal data structure. Good programmers will not use it
+	 * except as an argument to one of the functions below.
 	 */
-	int			dd_stat;
+	__declspec(dllexport)
+		typedef struct
+	{
+		/* disk transfer area for this dir */
+		struct _wfinddata_t	dd_dta;
 
-	/* given path for dir with search pattern (struct is extended) */
-	wchar_t			dd_name[1];
-} _WDIR;
+		/* dirent struct to return from dir (NOTE: this makes this thread
+		 * safe as long as only one thread uses a particular DIR struct at
+		 * a time) */
+		struct _wdirent		dd_dir;
+
+		/* _findnext handle */
+		long			dd_handle;
+
+		/*
+			 * Status of search:
+		 *   0 = not started yet (next entry to read is first entry)
+		 *  -1 = off the end
+		 *   positive = 0 based index of next entry
+		 */
+		int			dd_stat;
+
+		/* given path for dir with search pattern (struct is extended) */
+		wchar_t			dd_name[1];
+	} _WDIR;
 
 
 
-__declspec(dllexport) _WDIR* _wopendir (const wchar_t*);
-__declspec(dllexport) struct _wdirent*  _wreaddir (_WDIR*);
-__declspec(dllexport) int _wclosedir (_WDIR*);
-__declspec(dllexport) void _wrewinddir (_WDIR*);
-__declspec(dllexport) long _wtelldir (_WDIR*);
-__declspec(dllexport) void _wseekdir (_WDIR*, long);
+	__declspec(dllexport) _WDIR* _wopendir(const wchar_t*);
+	__declspec(dllexport) struct _wdirent*  _wreaddir(_WDIR*);
+	__declspec(dllexport) int _wclosedir(_WDIR*);
+	__declspec(dllexport) void _wrewinddir(_WDIR*);
+	__declspec(dllexport) long _wtelldir(_WDIR*);
+	__declspec(dllexport) void _wseekdir(_WDIR*, long);
 
 
 #ifdef	__cplusplus

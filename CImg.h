@@ -40547,10 +40547,10 @@ namespace cimg {
 #define None 0
 #endif
 #ifdef _cimg_redefine_min
-#define min(a,b) (((a)<(b))?(a):(b))
+// #define min(a,b) (((a)<(b))?(a):(b))
 #endif
 #ifdef _cimg_redefine_max
-#define max(a,b) (((a)>(b))?(a):(b))
+// #define max(a,b) (((a)>(b))?(a):(b))
 #endif
 #ifdef _cimg_redefine_PI
 #define PI 3.141592653589793238462643383

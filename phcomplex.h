@@ -1,20 +1,20 @@
 #include <stdlib.h>
 #include <math.h>
-
+#include <complex>
 #ifndef _PH_COMPLEX_H
 #define _PH_COMPLEX_H
 
-typedef struct phcomplex {
-     double re;
-     double im;
-} Complexd;
+//typedef struct phcomplex {
+//     double re;
+//     double im;
+//} Complexd;
 
-Complexd polar_to_complex(const double r, const double theta);
+std::complex<double> polar_to_complex(const double r, const double theta);
 
-Complexd add_complex(const Complexd a, const Complexd b);
+std::complex<double> add_complex(const std::complex<double> a, const std::complex<double> b);
 
-Complexd sub_complex(const Complexd a, const Complexd b);
+std::complex<double> sub_complex(const std::complex<double> a, const std::complex<double> b);
 
-Complexd mult_complex(const Complexd a, const Complexd b);
+std::complex<double> mult_complex(const std::complex<double> a, const std::complex<double> b);
 
 #endif
