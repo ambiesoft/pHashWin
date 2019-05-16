@@ -58,14 +58,17 @@ int main(int argc, char **argv)
 		if (video)
 		{
 			int length = 0;
-			if (0 == ph_dct_videohash(toStdString(file).c_str(), length))
+			ulong64* hash = ph_dct_videohash(toStdUtf8String(file).c_str(), length);
+			if (!hash)
 			{
-				printf("%u", length);
-				return 0;
+				wcerr << "ph_dct_videohash failed" << endl;
+				return 1;
 			}
-			return 1;
+
+			printf("%u", length);
 		}
 	}
+	return 0;
 }
 int main_old(int argc, char **argv) {
 	if (argc >= 3 && stricmp(argv[1], "/dct-decimal") == 0) {
